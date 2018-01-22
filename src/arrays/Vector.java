@@ -1,5 +1,12 @@
 package arrays;
 
+/**
+ * Advantages:
+ * - finding the nth item of array takes constant time
+ * Disadvantages:
+ * - inserting item at beginning or middle takes time proportional to length of array
+ * - have fixed length array internally and resizing is costly
+ */
 public class Vector {
     private int size = 0;
     private int[] arr;
