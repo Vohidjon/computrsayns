@@ -27,7 +27,6 @@ public class SList {
 
     public SList() {
         head = null;
-        tail = null;
         size = 0;
     }
 
