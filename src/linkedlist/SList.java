@@ -40,11 +40,7 @@ public class SList {
 
     public Object valueAt(int index) {
         if (index >= 0 && index < size) {
-            SListNode value = this.head;
-            for (int i = 1; i <= index; i++) {
-                value = value.next;
-            }
-            return value;
+            return this.nodeAt(index).item;
         }
         return null;
     }
@@ -143,11 +139,27 @@ public class SList {
     }
 
     public void reverse() {
-
+        SListNode tail = this.nodeAt(this.size - 1);
+        reverse(this.head);
+        this.head = tail;
     }
 
-    public void insertFront(Object item) {
-        this.head = new SListNode(item, this.head);
-        this.size++;
+    private SListNode nodeAt(int index) {
+        SListNode value = this.head;
+        for (int i = 1; i <= index; i++) {
+            value = value.next;
+        }
+        return value;
+    }
+
+    private void reverse(SListNode node) {
+        if(node.next != null) {
+            this.reverse(node.next);
+        }
+        node.next = node;
+    }
+
+    public void removeValue(Object value) {
+
     }
 }
