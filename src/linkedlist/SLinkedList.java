@@ -21,11 +21,11 @@ package linkedlist;
  * - "size" is always correct
  * - list is never circularly linked
  */
-public class SList {
+public class SLinkedList {
     private SListNode head;
     private int size;
 
-    public SList() {
+    public SLinkedList() {
         head = null;
         size = 0;
     }
@@ -160,6 +160,12 @@ public class SList {
     }
 
     public void removeValue(Object value) {
-
+        SListNode node = this.head;
+        for (int i = 1; i < this.size; i++) {
+            if(node.item == value) {
+                this.erase(i - 1);
+                break;
+            }
+        }
     }
 }
