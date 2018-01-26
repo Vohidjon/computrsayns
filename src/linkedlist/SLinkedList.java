@@ -169,3 +169,27 @@ public class SLinkedList {
         }
     }
 }
+
+/**
+ * Advantages over array lists:
+ * - inserting item int middle of linked list takes constant time given the list is doubly-linked
+ * - moreover, lists can keep growing
+ * Disadvantages:
+ * - finding the nth item of a linked list takes time proportional to length of list
+ * Disadvantages with SListNode:
+ * - inserting item in the beginning of list
+ * - now way to represent an empty list
+ */
+class SListNode {
+    public Object item;
+    public SListNode next;
+
+    public SListNode(Object item){
+        this(item, null);
+    }
+
+    public SListNode(Object item, SListNode next) {
+        this.item = item;
+        this.next = next;
+    }
+}
