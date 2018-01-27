@@ -111,6 +111,7 @@ public class SLinkedList {
             }
             node.next = new SListNode(item, node.next);
             this.size++;
+            return;
         }
         throw new IndexOutOfBoundsException();
     }
@@ -127,6 +128,7 @@ public class SLinkedList {
                 node.next = node.next.next;
             }
             this.size--;
+            return;
         }
         throw new IndexOutOfBoundsException();
     }
@@ -140,7 +142,7 @@ public class SLinkedList {
 
     public void reverse() {
         SListNode tail = this.nodeAt(this.size - 1);
-        reverse(this.head);
+        reverse(this.head, null);
         this.head = tail;
     }
 
@@ -152,11 +154,11 @@ public class SLinkedList {
         return value;
     }
 
-    private void reverse(SListNode node) {
+    private void reverse(SListNode node, SListNode prevNode) {
         if(node.next != null) {
-            this.reverse(node.next);
+            this.reverse(node.next, node);
         }
-        node.next = node;
+        node.next = prevNode;
     }
 
     public void removeValue(Object value) {
@@ -166,6 +168,7 @@ public class SLinkedList {
                 this.erase(i - 1);
                 break;
             }
+            node = node.next;
         }
     }
 }

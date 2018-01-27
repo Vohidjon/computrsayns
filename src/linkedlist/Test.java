@@ -13,7 +13,7 @@ public class Test {
 
         linkedList.pushFront(3);
         linkedList.pushFront(5);
-        assert (int)linkedList.valueAt(1) == 5 : "The value at index 1 must be 5";
+        assert (int)linkedList.valueAt(0) == 5 : "The value at index 1 must be 5";
 
         linkedList.pushFront(7);
         assert (int) linkedList.front() == 7 : "The first item must be 7";
@@ -23,7 +23,7 @@ public class Test {
         assert oldSize - 1 == linkedList.size() : "The size must decrease by 1";
 
         linkedList.pushBack(16);
-        assert (int)linkedList.back() == 5 : "The last item must be 16";
+        assert (int)linkedList.back() == 16 : "The last item must be 16";
 
         linkedList = new SLinkedList();
         linkedList.pushFront(7);
@@ -40,11 +40,11 @@ public class Test {
         linkedList.pushFront(3);
         linkedList.pushFront(2);
         linkedList.pushFront(1);
-        assert (int)linkedList.valueNFromEnd(3) == 3 : "The value must be 3";
+        assert (int)linkedList.valueNFromEnd(3) == 2 : "The value must be 3";
 
         linkedList.reverse();
-        assert (int) linkedList.valueAt(0) == 1 && (int) linkedList.valueAt(1) == 2
-                && (int) linkedList.valueAt(2) == 3 && (int) linkedList.valueAt(3) == 4 : "The list must be reversed";
+        assert (int) linkedList.valueAt(0) == 4 && (int) linkedList.valueAt(1) == 3
+                && (int) linkedList.valueAt(2) == 2 && (int) linkedList.valueAt(3) == 1 : "The list must be reversed";
 
         linkedList = new SLinkedList();
         linkedList.pushFront(13);
