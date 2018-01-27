@@ -18,15 +18,15 @@ public class Test {
         v1.push(13);
         assert v1.size() == 1 : "Size must be 1";
         v1.push(15);
-        assert v1.size() == 1 && v1.at(1) == 15 : "Size must be one and second item should be equal to 15";
+        assert v1.size() == 2 && v1.at(1) == 15 : "Size must be one and second item should be equal to 15";
         v1.insert(1, 14);
         assert v1.at(1) == 14 && v1.size() == 3 : "The second item must be 14 and size must be 3 now";
 
         v2.prepend(16);
-        v2.prepend(12);
+        v2.prepend(12);// 12
         assert v2.at(0) == 12 && v2.size() == 2 : "The first item must be equal to 12 and size must be 2";
         v2.pop();
-        assert v2.at(0) != 16 && v2.size() == 2 : "The first item must not be 16 and the size must be 1";
+        assert v2.at(0) != 16 && v2.size() == 1 : "The first item must not be 16 and the size must be 1";
 
         v3.push(7);
         v3.push(90);

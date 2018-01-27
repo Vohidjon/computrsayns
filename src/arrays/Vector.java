@@ -36,7 +36,7 @@ public class Vector {
     }
 
     public int at(int index) {
-        if (index > this.size) {
+        if (index < this.size) {
             return this.arr[index];
         }
         throw new IndexOutOfBoundsException();
@@ -44,7 +44,8 @@ public class Vector {
 
     public void push(int item) {
         this.resize();
-        this.arr[++this.size] = item;
+        this.size++;
+        this.arr[this.size - 1] = item;
     }
 
     public void insert(int index, int item) {
@@ -59,7 +60,7 @@ public class Vector {
 
     public void prepend(int item) {
         this.resize();
-        for (int i = this.size; i <= 0; i++) {
+        for (int i = this.size - 1; i >= 0; i--) {
             this.arr[i + 1] = this.arr[i];
         }
         this.arr[0] = item;
@@ -68,7 +69,11 @@ public class Vector {
 
     public int pop() {
         if (!this.isEmpty()) {
-            return this.arr[this.size--];
+            int lastItem = this.arr[this.size - 1];
+            this.arr[this.size - 1] = 0; // not so important
+            this.size--;
+            this.resize();
+            return lastItem;
         }
         throw new IndexOutOfBoundsException();
     }
@@ -80,6 +85,7 @@ public class Vector {
             this.arr[index] = this.arr[index + 1];
         }
         this.size--;
+        this.resize();
         return item;
     }
 
