@@ -84,6 +84,10 @@ public class MaxHeap {
         }
     }
 
+    /**
+     * Time - O(nlg(n))
+     * @param array
+     */
     public static void heapSort(int[] array) {
         heapify(array);
         int size = array.length - 1;
