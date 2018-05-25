@@ -1,5 +1,7 @@
 package trees;
 
+import java.util.Arrays;
+
 public class Test {
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
@@ -39,6 +41,27 @@ public class Test {
 
         assert tree.getSuccessor(6) == 8 : "Successor should be 8";
         assert tree.getSuccessor(12) == -1 : "Successor should be -1, i.e no successor";
+
+
+        MaxHeap heap = new MaxHeap();
+        assert heap.isEmpty() : "Should initially be empty";
+        heap.insert(6);
+        assert heap.getSize() == 1 : "Size should be 1";
+        heap.insert(9);
+        assert heap.getMax() == 9 : "Max should be 9";
+        heap.extractMax();
+        assert heap.getMax() == 6 : "Max should be 6";
+        heap.insert(12);
+        heap.insert(16);
+        heap.insert(2);
+        heap.insert(3);
+        int oldSize = heap.getSize();
+        heap.remove(16);
+        assert heap.getSize() + 1 == oldSize : "Size should decrement";
+
+        int[] array = new int[]{-1, 9, 7, 3, 5, 4, 8, 6, 2, 1};
+        MaxHeap.heapSort(array);
+        assert Arrays.equals(array, new int[]{-1, 1, 2, 3, 4, 5, 6, 7, 8, 9}) : "Should be sorted";
 
     }
 }
