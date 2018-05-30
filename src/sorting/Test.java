@@ -18,5 +18,14 @@ public class Test {
         int[] bySelectionSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
         SelectionSort.sort(bySelectionSort);
         assert Arrays.equals(bySelectionSort, sortedArr);
+
+        int[] byHeapSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        HeapSort.sort(byHeapSort);
+        assert Arrays.equals(byHeapSort, sortedArr);
+
+        int[] byMergeSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        MergeSort.sort(byMergeSort);
+        assert Arrays.equals(byMergeSort, sortedArr);
+
     }
 }
