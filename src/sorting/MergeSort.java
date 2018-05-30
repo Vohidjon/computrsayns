@@ -2,6 +2,10 @@ package sorting;
 
 
 public class MergeSort {
+    /**
+     * Time - O(nlg(n))
+     * @param array
+     */
     public static void sort(int[] array) {
         int[] aux = new int[array.length];
         sort(array, aux, 0, array.length - 1);
@@ -15,6 +19,14 @@ public class MergeSort {
         merge(array, aux, lo, mid, hi);
     }
 
+    /**
+     * Time - O(n)
+     * @param array
+     * @param aux
+     * @param lo
+     * @param mid
+     * @param hi
+     */
     private static void merge(int[] array, int[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++) {
             aux[k] = array[k];

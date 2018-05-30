@@ -27,5 +27,8 @@ public class Test {
         MergeSort.sort(byMergeSort);
         assert Arrays.equals(byMergeSort, sortedArr);
 
+        int[] byQuickSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        QuickSort.sort(byQuickSort);
+        assert Arrays.equals(byQuickSort, sortedArr);
     }
 }
