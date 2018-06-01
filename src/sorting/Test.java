@@ -30,5 +30,17 @@ public class Test {
         int[] byQuickSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
         QuickSort.sort(byQuickSort);
         assert Arrays.equals(byQuickSort, sortedArr);
+
+        int[] byBucketSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        BucketSort.sort(byBucketSort, 100);
+        assert Arrays.equals(byBucketSort, sortedArr);
+
+        int[] byCountingSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        CountingSort.sort(byCountingSort, 100);
+        assert Arrays.equals(byCountingSort, sortedArr);
+
+        int[] byCountingAdvancedSort = Arrays.copyOf(unsortedArr, unsortedArr.length);
+        CountingAdvancedSort.sort(byCountingAdvancedSort, 100);
+        assert Arrays.equals(byCountingAdvancedSort, sortedArr);
     }
 }
