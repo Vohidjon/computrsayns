@@ -2,6 +2,7 @@ package sorting;
 
 public class BubbleSort extends BaseSort{
     /**
+     * Stable - YES
      * Time - O(n^2), works quite fast when n <= 16
      *
      * @param array
