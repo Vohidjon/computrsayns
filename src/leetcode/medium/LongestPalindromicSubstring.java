@@ -50,23 +50,4 @@ public class LongestPalindromicSubstring {
         }
         return max;
     }
-
-    private static String solution2Rec(String s) {
-        boolean isPol = true;
-        int start = 0;
-        int end = s.length() - 1;
-        while (start <= end) {
-            if (s.charAt(start++) != s.charAt(end--)) {
-                isPol = false;
-                break;
-            }
-        }
-        if(isPol) return s;
-
-        String left = solution2Rec(s.substring(0, s.length() - 1));
-        String right = solution2Rec(s.substring(1, s.length()));
-
-        if(left.length() >= right.length()) return  left;
-        else return right;
-    }
 }
