@@ -1,15 +1,18 @@
 package leetcode;
 
 
-import leetcode.easy.PolindromeNumber;
+import leetcode.hard.RegularExpressionMatching;
 
 public class Test {
     public static void main(String[] args) {
-        assert PolindromeNumber.isIt(10) == false;
-        assert PolindromeNumber.isIt(-121) == false;
-        assert PolindromeNumber.isIt(121) == true;
-        assert PolindromeNumber.isIt(1231) == false;
-        assert PolindromeNumber.isIt(1256521) == true;
-        assert PolindromeNumber.isIt(1000021) == false;
+        assert RegularExpressionMatching.isMatch("a", "ab*") == true;
+        assert RegularExpressionMatching.isMatch("mm", "a*") == false;
+        assert RegularExpressionMatching.isMatch("mississippi", "mis*is*ip*.") == true;
+        assert RegularExpressionMatching.isMatch("", "") == true;
+        assert RegularExpressionMatching.isMatch("aa", "a") == false;
+        assert RegularExpressionMatching.isMatch("aa", "a*") == true;
+        assert RegularExpressionMatching.isMatch("ab", ".*") == true;
+        assert RegularExpressionMatching.isMatch("aab", "c*a*b") == true;
+        assert RegularExpressionMatching.isMatch("mississippi", "mis*is*p.") == false;
     }
 }
