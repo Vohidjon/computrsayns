@@ -1,18 +1,13 @@
 package leetcode;
 
 
-import leetcode.hard.RegularExpressionMatching;
+import leetcode.easy.RomanToInteger;
+import leetcode.medium.IntegerToRoman;
 
 public class Test {
     public static void main(String[] args) {
-        assert RegularExpressionMatching.isMatch("a", "ab*") == true;
-        assert RegularExpressionMatching.isMatch("mm", "a*") == false;
-        assert RegularExpressionMatching.isMatch("mississippi", "mis*is*ip*.") == true;
-        assert RegularExpressionMatching.isMatch("", "") == true;
-        assert RegularExpressionMatching.isMatch("aa", "a") == false;
-        assert RegularExpressionMatching.isMatch("aa", "a*") == true;
-        assert RegularExpressionMatching.isMatch("ab", ".*") == true;
-        assert RegularExpressionMatching.isMatch("aab", "c*a*b") == true;
-        assert RegularExpressionMatching.isMatch("mississippi", "mis*is*p.") == false;
+        for (int i = 1; i <= 3999; i++) {
+            assert i == RomanToInteger.romanToInt(IntegerToRoman.intToRoman(i));
+        }
     }
 }
