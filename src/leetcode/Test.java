@@ -1,15 +1,12 @@
 package leetcode;
 
-
-import leetcode.easy.LongestCommonPrefix;
-import leetcode.easy.RomanToInteger;
-import leetcode.medium.IntegerToRoman;
-import leetcode.medium.LetterCombinationsOfPhoneNumber;
-
-import java.util.List;
+import leetcode.easy.ImplementStrStr;
 
 public class Test {
     public static void main(String[] args) {
-        List<String> result = LetterCombinationsOfPhoneNumber.letterCombinations("23");
+        System.out.println(ImplementStrStr.strStr("a", "a"));
+        System.out.println(ImplementStrStr.strStr("hello", "ll"));
+        System.out.println(ImplementStrStr.strStr("aaaaa", "bla"));
+        System.out.println(ImplementStrStr.strStr("33ssdd", ""));
     }
 }
