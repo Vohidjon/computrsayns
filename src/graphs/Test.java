@@ -20,11 +20,6 @@ public class Test {
         Collections.addAll(graph[5], new Vertex(4, 2), new Vertex(1, 1), new Vertex(6, 4));
         graph[6] = new LinkedList<>();
         Collections.addAll(graph[6], new Vertex(2, 6), new Vertex(3, 4), new Vertex(5, 4));
-
-        Integer[] result = Traversal.minimumSpanningTree(graph);
-
-//        Traversal.BFS(graph);
-
         byte[][] matrix = new byte[][]{
                 ////////// 0  1  2  3  4  5  6  7  8
                 new byte[]{0, 1, 1, 1, 0, 0, 0, 0, 0}, // 0
@@ -38,6 +33,61 @@ public class Test {
                 new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0}, // 8
         };
 
-//        Traversal.BFS(matrix);
+        LinkedList<Vertex>[] graphWithCycle = new LinkedList[7];
+        graphWithCycle[0] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[0], new Vertex(2, -1), new Vertex(3, -1));
+        graphWithCycle[1] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[1], new Vertex(0, -1), new Vertex(4, -1), new Vertex(5, -1));
+        graphWithCycle[2] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[2], new Vertex(6, -1));
+        graphWithCycle[3] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[3], new Vertex(6, -1));
+        graphWithCycle[4] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[4], new Vertex(5, -1));
+        graphWithCycle[5] = new LinkedList<>();
+        Collections.addAll(graphWithCycle[5], new Vertex(6, -1));
+        graphWithCycle[6] = new LinkedList<>();
+
+
+        LinkedList<Vertex>[] graphWithCrossEdge = new LinkedList[5];
+        graphWithCrossEdge[0] = new LinkedList<>();
+        Collections.addAll(graphWithCrossEdge[0], new Vertex(1, -1), new Vertex(2, -1), new Vertex(3, -1), new Vertex(4, -1));
+        graphWithCrossEdge[1] = new LinkedList<>();
+        Collections.addAll(graphWithCrossEdge[1], new Vertex(2, -1), new Vertex(3, -1));
+        graphWithCrossEdge[2] = new LinkedList<>();
+        Collections.addAll(graphWithCrossEdge[2], new Vertex(3, -1), new Vertex(4, -1));
+        graphWithCrossEdge[3] = new LinkedList<>();
+        Collections.addAll(graphWithCrossEdge[3], new Vertex(4, -1));
+        graphWithCrossEdge[4] = new LinkedList<>();
+        Collections.addAll(graphWithCrossEdge[4]);
+
+//        Integer res = Traversal.countConnectedComponents(graph);
+        LinkedList<Vertex>[] graphForSCC = new LinkedList[12];
+        graphForSCC[0] = new LinkedList<>();
+        Collections.addAll(graphForSCC[0], new Vertex(1, -1));
+        graphForSCC[1] = new LinkedList<>();
+        Collections.addAll(graphForSCC[1], new Vertex(3, -1));
+        graphForSCC[2] = new LinkedList<>();
+        Collections.addAll(graphForSCC[2], new Vertex(0, -1));
+        graphForSCC[3] = new LinkedList<>();
+        Collections.addAll(graphForSCC[3], new Vertex(2, -1), new Vertex(4, -1));
+        graphForSCC[4] = new LinkedList<>();
+        Collections.addAll(graphForSCC[4], new Vertex(5, -1));
+        graphForSCC[5] = new LinkedList<>();
+        Collections.addAll(graphForSCC[5], new Vertex(6, -1));
+        graphForSCC[6] = new LinkedList<>();
+        Collections.addAll(graphForSCC[6], new Vertex(4, -1), new Vertex(7, -1));
+        graphForSCC[7] = new LinkedList<>();
+        Collections.addAll(graphForSCC[7], new Vertex(8, -1), new Vertex(9, -1));
+        graphForSCC[8] = new LinkedList<>();
+        Collections.addAll(graphForSCC[8], new Vertex(10, -1));
+        graphForSCC[9] = new LinkedList<>();
+        Collections.addAll(graphForSCC[9], new Vertex(8, -1));
+        graphForSCC[10] = new LinkedList<>();
+        Collections.addAll(graphForSCC[10], new Vertex(10, -1), new Vertex(11, -1));
+        graphForSCC[11] = new LinkedList<>();
+        Collections.addAll(graphForSCC[11]);
+
+        Traversal.listStronglyConnectedComponents(graphForSCC);
     }
 }
