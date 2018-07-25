@@ -88,6 +88,25 @@ public class Test {
         graphForSCC[11] = new LinkedList<>();
         Collections.addAll(graphForSCC[11]);
 
-        Traversal.listStronglyConnectedComponents(graphForSCC);
+        LinkedList<Vertex>[] bipartiteGraph = new LinkedList[8];
+        bipartiteGraph[0] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[0], new Vertex(4, -1), new Vertex(5, -1), new Vertex(2, -1));
+        bipartiteGraph[1] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[1], new Vertex(4, -1), new Vertex(5, -1), new Vertex(6, -1), new Vertex(7, -1));
+        bipartiteGraph[2] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[2], new Vertex(7, -1), new Vertex(0, -1));
+        bipartiteGraph[3] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[3], new Vertex(5, -1), new Vertex(7, -1));
+        bipartiteGraph[4] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[4], new Vertex(0, -1), new Vertex(1, -1));
+        bipartiteGraph[5] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[5], new Vertex(0, -1), new Vertex(1, -1), new Vertex(3, -1));
+        bipartiteGraph[6] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[6], new Vertex(1, -1));
+        bipartiteGraph[7] = new LinkedList<>();
+        Collections.addAll(bipartiteGraph[7], new Vertex(1, -1), new Vertex(2, -1), new Vertex(3, -1));
+//        System.out.println(Traversal.isBipartite(bipartiteGraph));
+
+
     }
 }

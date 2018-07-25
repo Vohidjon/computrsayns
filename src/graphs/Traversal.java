@@ -326,6 +326,8 @@ public class Traversal {
 
     /**
      * List strongly connected components
+     * Main idea: run DFS, store vertices in reverse order with finishing times, reverse the graph, and do DFS on it
+     * Time: O(N + M)
      */
     public static int[] listStronglyConnectedComponents(LinkedList<Vertex>[] graph) {
         int[] components = new int[graph.length];
@@ -371,9 +373,27 @@ public class Traversal {
         return components;
     }
 
+    /**
+     * Checks the bipartite graph
+     * @param graph
+     * @return
+     */
     public static boolean isBipartite(LinkedList<Vertex>[] graph) {
+        boolean[] processed = new boolean[graph.length];
+        String[] colors = new String[graph.length];
+        return isBipartiteDFS(graph, 0, processed, colors, "RED");
+    }
 
-        return false;
+    private static boolean isBipartiteDFS(LinkedList<Vertex>[] graph, int v, boolean[] processed, String[] colors, String nextColor) {
+        processed[v] = true;
+        colors[v] = nextColor;
+        String oppositeColor = nextColor.equals("RED") ? "BLUE" : "RED";
+        for (Vertex u : graph[v]) {
+            if (!processed[u.index]) {
+                if(!isBipartiteDFS(graph, u.index, processed, colors, oppositeColor)) return false;
+            } else if(colors[u.index].equals(nextColor)) return false;
+        }
+        return true;
     }
 }
 
