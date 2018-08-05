@@ -1,5 +1,7 @@
 package dynamicprogramming;
 
+import java.util.Stack;
+
 public class EditDistance {
     private static final int MATCH = 0;
     private static final int INSERTION = 1;
@@ -8,14 +10,16 @@ public class EditDistance {
     /**
      * Time: O(n^2)
      * Space: O(n^2)
+     *
      * @param s
      * @param t
      * @return
      */
-    public int findDistance(String s, String t) {
+    private Entry[][] bottomUp(String s, String t) {
         Entry[][] costs = new Entry[s.length() + 1][t.length() + 1];
-        for (int i = 0; i <= s.length(); i++) costs[i][0] = new Entry(i, INSERTION);
-        for (int i = 0; i <= t.length(); i++) costs[0][i] = new Entry(i, DELETION);
+        costs[0][0] = new Entry(0, -1);
+        for (int i = 1; i <= t.length(); i++) costs[0][i] = new Entry(i, INSERTION);
+        for (int i = 1; i <= s.length(); i++) costs[i][0] = new Entry(i, DELETION);
         int[] options = new int[3];
 
         for (int i = 1; i <= s.length(); i++) {
@@ -34,7 +38,31 @@ public class EditDistance {
             }
         }
 
+        return costs;
+    }
+
+    public int findDistance(String s, String t) {
+        Entry[][] costs = bottomUp(s, t);
         return costs[s.length() - 1][t.length() - 1].cost;
+    }
+
+    public String optimalConstructionPath(String s, String t) {
+        Entry[][] costs = bottomUp(s, t);
+        return optimalConstructionPath(costs, s.length(), t.length()).toString();
+    }
+
+    private StringBuffer optimalConstructionPath(Entry[][] costs, int i, int j) {
+        if (costs[i][j].parent == -1) return new StringBuffer();
+
+        if (costs[i][j].parent == MATCH && costs[i][j].cost == costs[i - 1][j - 1].cost) { // Match
+            return optimalConstructionPath(costs, i - 1, j - 1).append('M');
+        } else if (costs[i][j].parent == MATCH) { // Substitution
+            return optimalConstructionPath(costs, i - 1, j - 1).append('S');
+        } else if (costs[i][j].parent == INSERTION) { // Insertion
+            return optimalConstructionPath(costs, i, j - 1).append('I');
+        } else {                                      // Deletion
+            return optimalConstructionPath(costs, i - 1, j).append('D');
+        }
     }
 
     private int deleteCost(char a) {
@@ -52,6 +80,7 @@ public class EditDistance {
     class Entry {
         int cost;
         int parent;
+
         public Entry(int cost, int parent) {
             this.cost = cost;
             this.parent = parent;
