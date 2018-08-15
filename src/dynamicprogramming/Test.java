@@ -1,7 +1,9 @@
 package dynamicprogramming;
 
+import trees.BSTNode;
+
 public class Test {
     public static void main(String[] args) {
-        System.out.println(new MinJumpToReachEnd().jumps(new int[] {2, 3, 1, 1, 2, 4, 2, 0, 1, 1}));
+        BSTNode tree = new OptimalSearchTree().optimalTree(new int[]{10, 12, 16, 21}, new int[]{4, 2, 6, 3});
     }
 }
