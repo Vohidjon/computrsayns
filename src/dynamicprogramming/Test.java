@@ -1,9 +1,12 @@
 package dynamicprogramming;
 
-import trees.BSTNode;
-
 public class Test {
     public static void main(String[] args) {
-        BSTNode tree = new OptimalSearchTree().optimalTree(new int[]{10, 12, 16, 21}, new int[]{4, 2, 6, 3});
+        int[][] input = new int[][]{
+                {1, 0, 0, 1, 1, 1},
+                {1, 0, 1, 1, 0, 1},
+                {0, 1, 1, 1, 1, 1},
+                {0, 0, 1, 1, 1, 1}};
+        System.out.println(new MaximumSizeRectangleOfAllOnes().max(input));
     }
 }
