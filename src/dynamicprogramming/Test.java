@@ -1,12 +1,13 @@
 package dynamicprogramming;
 
+
 public class Test {
     public static void main(String[] args) {
         int[][] input = new int[][]{
-                {1, 0, 0, 1, 1, 1},
-                {1, 0, 1, 1, 0, 1},
-                {0, 1, 1, 1, 1, 1},
-                {0, 0, 1, 1, 1, 1}};
-        System.out.println(new MaximumSizeRectangleOfAllOnes().max(input));
+                { 2,  1, -3, -4,  5},
+                { 0,  6,  3,  4,  1},
+                { 2, -2, -1,  4, -5},
+                {-3,  3,  1,  0,  3}};
+        int[][] a = new MaximumSumRectangularSubMatrix().maxSubMatrix(input);
     }
 }
