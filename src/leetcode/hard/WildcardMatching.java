@@ -1,12 +1,11 @@
-package dynamicprogramming;
+package leetcode.hard;
 
 public class WildcardMatching {
     private static final char STAR = '*';
     private static final char QUESTION = '?';
-    public boolean isMatch(String regEx, String s) {
+    public boolean isMatch(String s, String regEx) {
         boolean[][] DP = new boolean[regEx.length() + 1][s.length() + 1];
         DP[0][0] = true;
-
         for (int i = 1; i <= regEx.length(); i++) {
             if(regEx.charAt(i - 1) == STAR) DP[i][0] = DP[i - 1][0];
         }
