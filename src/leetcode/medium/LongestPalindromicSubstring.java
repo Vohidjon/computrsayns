@@ -50,4 +50,30 @@ public class LongestPalindromicSubstring {
         }
         return max;
     }
+
+    public String longestPalindromeDP(String s) {
+        if(s.length() < 2) return s;
+        boolean[][] DP = new boolean[s.length()][s.length()];
+        int maxI = 0;
+        int maxJ = 0;
+        for (int i = 0; i < s.length(); i++) DP[i][i] = true;
+        for (int i = 0; i < s.length() - 1; i++) {
+            DP[i][i + 1] = s.charAt(i) == s.charAt(i + 1);
+            if(DP[i][i + 1]) {
+                maxI = i;
+                maxJ = i + 1;
+            }
+        }
+        for (int l = 2; l < s.length(); l++) {
+            for (int i = 0; i < s.length() - l; i++) {
+                int j = i + l;
+                DP[i][j] = DP[i + 1][j - 1] && s.charAt(i) == s.charAt(j);
+                if(DP[i][j]) {
+                    maxI = i;
+                    maxJ = j;
+                }
+            }
+        }
+        return s.substring(maxI, maxJ + 1);
+    }
 }
