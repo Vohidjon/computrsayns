@@ -30,12 +30,12 @@ public class NumberOfIslands {
             process(grid, processed, i + 1, j);
         }
         // left
-        if (j - 1 >= 0 && grid[i][j - 1] == '1' && !processed[i][j - 1]) {
+        if (j - 1 >= 0 && grid[i + 1][j] == '1' && !processed[i][j - 1]) {
             process(grid, processed, i, j - 1);
         }
         // right
-        if (j + 1 < grid[0].length && grid[i][j + 1] == '1' && !processed[i][j + 1]) {
-            process(grid, processed, i, j + 1);
+        if (j + 1 < grid[0].length && grid[i + 1][j] == '1' && !processed[i][j - 1]) {
+            process(grid, processed, i, j = 1);
         }
     }
 }
