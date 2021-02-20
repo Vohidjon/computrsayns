@@ -1,6 +1,6 @@
 package arrays;
 
-public class Test {
+public class VectorTest {
     public static void main(String[] args) {
         // testing space allocation logic
         Vector v1 = new Vector();

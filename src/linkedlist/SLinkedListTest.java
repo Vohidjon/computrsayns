@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class Test {
+public class SLinkedListTest {
     public static void main(String[] args) {
         SLinkedList linkedList = new SLinkedList();
         linkedList.pushFront(12);
@@ -23,7 +23,7 @@ public class Test {
         assert oldSize - 1 == linkedList.size() : "The size must decrease by 1";
 
         linkedList.pushBack(16);
-        assert (int)linkedList.back() == 16 : "The last item must be 16";
+        assert (int)linkedList.back() == 16 && linkedList.size() == 3 : "The last item must be 16";
 
         linkedList = new SLinkedList();
         linkedList.pushFront(7);

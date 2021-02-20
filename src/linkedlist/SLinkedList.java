@@ -2,7 +2,7 @@ package linkedlist;
 
 /**
  * Private methods or fields. Why?
- * - to prevent data from being corrupted by other classess
+ * - to prevent data from being corrupted by other classes
  * - you can improve the implementation without causing other classes to fail
  * <p>
  * What is interface of a class?
@@ -175,7 +175,7 @@ public class SLinkedList {
 
 /**
  * Advantages over array lists:
- * - inserting item int middle of linked list takes constant time given the list is doubly-linked
+ * - inserting item into middle of linked list takes constant time given the list is doubly-linked
  * - moreover, lists can keep growing
  * Disadvantages:
  * - finding the nth item of a linked list takes time proportional to length of list
