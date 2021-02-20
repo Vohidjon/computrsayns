@@ -20,7 +20,7 @@ public class Test {
         v1.push(15);
         assert v1.size() == 2 && v1.at(1) == 15 : "Size must be one and second item should be equal to 15";
         v1.insert(1, 14);
-        assert v1.at(1) == 14 && v1.size() == 3 : "The second item must be 14 and size must be 3 now";
+        assert v1.size() == 3 && v1.at(0) == 13 && v1.at(1) == 14 && v1.at(2) == 15: "The second item must be 14 and size must be 3 now";
 
         v2.prepend(16);
         v2.prepend(12);// 12
